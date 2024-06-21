@@ -1,12 +1,12 @@
-var numblocks = 3;
+var numblocks = 2;
 var main_block = document.querySelector('.main_block'); 
 
 //имитация БД
-var names = ['PUMA','Nike','The North Face']; //имена товаров
-var price_old_arr = ['12000 руб', '15000 руб', '14000 руб']; //старая цена
-var price_new_arr = ['10000 руб', '12000 руб', '12000 руб']; //новая цена
-var product_labels = ['Для самых смелых', 'Непревзойденная классика', 'Спорт - это жизнь']
-var description_block_arr = [['Верх:натуральная кожа искусственная кожа','Подкладка:текстиль','Подошва: резина' ],['Низкий силуэт','Верх из текстиля и синтетической кожи','Технология Running System'],['Антимикробная стелька OrthoLite® X55™','Технология Vectiv™','Промежуточная подошва c геометрией Rocker']];
+var names = ['Electro + Velo','Electro «Усиленный»']; //имена товаров
+var price_old_arr = ['153 000 руб.', '153 000 руб.']; //старая цена
+var price_new_arr = ['126 тыс. руб.', '126 тыс. руб.']; //новая цена
+var product_labels = ["Если вам достаточно нагрузки до 70 кг — вам подойдет набор:", 'Если вам достаточно только электро моделей – вам подойдет набор:']
+var description_block_arr = [['Скорость до 10 км/час','100+ кострукций','Нагрзука до 70кг' ],['Скорость до 10 км/час','20+ электромоделей','Нагрузка до 110 кг']];
 
 for (var i = 0; i < numblocks; i++) {
 
@@ -75,11 +75,15 @@ for (var i = 0; i < numblocks; i++) {
     description_block.setAttribute('class', 'description_block');
     product_card_block.appendChild(description_block);
 
+    var description_block_ul = document.createElement('div');
+    description_block_ul.setAttribute('class', 'ul');
+    description_block.appendChild(description_block_ul);
+
     for (var n=0; n < 3; n++){
         var description_text = document.createElement('li');
         description_text.setAttribute('class', 'li');
         description_text.textContent = description_block_arr[i][n];
-        description_block.appendChild(description_text);
+        description_block_ul.appendChild(description_text);
     }
 
 
@@ -88,20 +92,20 @@ for (var i = 0; i < numblocks; i++) {
     price_block.setAttribute('class', 'price_block');
     product_card_block.appendChild(price_block);
 
-    var price_text = document.createElement('h2');
-    price_text.setAttribute('class', 'h2');
-    price_text.textContent = 'Стоимость';
+    var price_text = document.createElement('div');
+    price_text.setAttribute('class', 'price_text_block');
+    price_text.textContent = 'Стоимость:';
     price_block.appendChild(price_text);
 
     //блок старой цены
     var price_old = document.createElement('div');
-    price_old.setAttribute('class', 'h1');
+    price_old.setAttribute('class', 'price_old_block');
     price_old.textContent = price_old_arr[i];
     price_block.appendChild(price_old);
 
     //блок новой цены
     var price_new = document.createElement('div');
-    price_new.setAttribute('class', 'h3');
+    price_new.setAttribute('class', 'price_new_block');
     price_new.textContent = price_new_arr[i];
     price_block.appendChild(price_new);
 

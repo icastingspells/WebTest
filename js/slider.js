@@ -13,11 +13,15 @@ function clickHandler(event) {
     event.currentTarget.style.transform = "scale(2)";
     event.currentTarget.style.borderRadius = "20px";
     event.currentTarget.style.boxShadow = "0px 0px 200px 10px black";
+    event.currentTarget.style.position = "relative";
+    event.currentTarget.style.zIndex = "5";
+    // event.currentTarget.setAttribute('style', 'transform: scale(2); border-radius: 20px; box-shadow: 0 0 200px 10px black; position: absolute; z-index: 5;')
     image_open = true;
   } else {
     event.currentTarget.style.transform = "scale(1)";
     event.currentTarget.style.borderRadius = "0";
     event.currentTarget.style.boxShadow = "none";
+    event.currentTarget.style.zIndex = "3";
     image_open = false;
   }
 }
@@ -47,7 +51,6 @@ sliders.forEach(slider => {
       prev_button.addEventListener("click", function() {
         currentSlide = (currentSlide - 1 + slides.length) % slides.length;
         showSlide(currentSlide);
-        open_slide(currentSlide);
       });
   
       //кнопка следующего слайда
