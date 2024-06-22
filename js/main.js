@@ -79,6 +79,7 @@ for (var i = 0; i < numblocks; i++) {
     description_block_ul.setAttribute('class', 'ul');
     description_block.appendChild(description_block_ul);
 
+    //блоки списка
     for (var n=0; n < 3; n++){
         var description_text = document.createElement('li');
         description_text.setAttribute('class', 'li');
